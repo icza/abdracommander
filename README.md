@@ -1,10 +1,25 @@
 # Abdra Commander
 
-A 2-pane file manager written in Java
+A 2-pane file manager written in Java.
 
-Screenshot:
+## Features
+
+- Completely written in Java, so you can use / run it in any operating systems.
+
+- Uses the native I/O capabilities introduced in Java 7.0.
+
+- Multi-window and multi-tab support.
+
+- Extensive configuration.
+
+- Easily extendable, extensive column list.
+
+- Easily extendable file operations.
+
+## Screenshot
 
 ![Abdra Commander v0.6.0 screenshot 01](screenshots/abdra-commander-v0.6.0-01.png)
+
 
 # Status
 
