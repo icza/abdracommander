@@ -1,4 +1,4 @@
-# abdracommander
+# Abdra Commander
 
 A 2-pane file manager written in Java
 
