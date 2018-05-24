@@ -4,7 +4,7 @@ A 2-pane file manager written in Java
 
 Screenshot:
 
-![Abdra Commander v0.6.0 screenshot 01](screenshots/abdra-commander-v0.6.09-01.png)
+![Abdra Commander v0.6.0 screenshot 01](screenshots/abdra-commander-v0.6.0-01.png)
 
 # Status
 
