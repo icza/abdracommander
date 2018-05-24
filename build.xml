@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Abdra Commander Builder" default="BUILD_RELEASE" basedir=".">
+	
+	<description>
+		Abdra Commander Builder. Can build releases and make project backup.
+	</description>
+	
+	
+	<!-- Folder properties -->
+	
+	<property name="projectFolder"          value="AbdraCommander" />
+	<property name="appFolder"              value="app-folder" />
+	<property name="releaseResourcesFolder" value="release/release-resources" />
+	<property name="releaseBuildFolder"     value="release/Abdracmd" />
+	<property name="destBackupFile"         value="w:/AbdraCommander-src.zip" />
+	
+	<property name="javadocDestFolder"      value="docs/auto-generated/javadoc" />
+	<property name="javadocExecutable"      value="C:\Program Files\Java\jdk1.7.0_07\bin\javadoc.exe" />
+	
+	
+	<!-- Targets -->
+	
+	
+	<target name="clearBuildFolder" description="Clears the release build folder">
+		<delete dir="${releaseBuildFolder}" />
+		<mkdir  dir="${releaseBuildFolder}" />
+	</target>
+	
+	
+	<target name="BUILD_RELEASE" depends="clearBuildFolder,incReleaseBuild" description="Creates an Abdra Commander release">
+		<!-- Copy static files -->
+		<copy todir="${releaseBuildFolder}" preservelastmodified="true">
+			<fileset dir="${appFolder}" excludes="User-Content/" />
+		</copy>
+		
+		<!-- Create abdracmd.jar -->
+		<jar
+			manifest = "${releaseResourcesFolder}/Abdracmd-manifest.mf"
+			basedir  = "bin"
+			destfile = "${releaseBuildFolder}/lib/abdracmd.jar"
+			excludes = "**/package.html,overview.html" />
+		
+		<!-- TODO Index jars -->
+		
+		<echo>Release build successful, release placed in folder: ${releaseBuildFolder}</echo>
+	</target>
+	
+	
+	<target name="BACKUP_PROJECT" description="Creates a project backup. Zips the files of the project (excluding bin folders, release build folder and javadoc folder)">
+		<zip
+			destfile = "${destBackupFile}"
+			basedir  = ".."
+			includes = "${projectFolder}/"
+			excludes = "${projectFolder}/bin/,${projectFolder}/bin-util/,${projectFolder}/${releaseBuildFolder}/,${projectFolder}/${javadocDestFolder}/" />
+		
+		<echo>Project backup ready in file: ${destBackupFile}</echo>
+	</target>
+	
+	
+	<target name="GENERATE_DEV_JAVADOC" description="Generates the Abdra Commander developer documentation">
+		<javadoc
+			executable       = "${javadocExecutable}"
+			source           = "1.7"
+			sourcepath       = "src;src-util"
+			destdir          = "${javadocDestFolder}"
+			
+			charset          = "UTF-8"
+			docencoding      = "UTF-8"
+			
+			doctitle         = "Abdra Commander Developer Documentation"
+			windowtitle      = "Developer Documentation - Abdra Commander"
+			header           = "&lt;a href='https://sites.google.com/site/abdracommander/' target='_blank'&gt;Abdra Commander home page&lt;/a&gt;"
+			footer           = "© András Belicza"
+			bottom           = "This developer documentation is for private use only!"
+			overview         = "src/overview.html"
+			
+			access           = "private"
+			author           = "true"
+			nodeprecated     = "false"
+			nodeprecatedlist = "false"
+			noindex          = "false"
+			nonavbar         = "false"
+			notree           = "false"
+			use              = "true"
+			version          = "true"
+			splitindex       = "false" />
+	</target>
+	
+	
+	<target name="incReleaseBuild">
+		<!-- Increments release build number (and writes release date+time). -->
+		<java
+			classpath = "bin-util;bin"
+			classname = "com.abdracmd.release.IncReleaseBuild" />
+	</target>
+	
+</project>

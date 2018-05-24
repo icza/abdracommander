@@ -1,0 +1,9 @@
+
+This is the first public release.
+
+Main features:
+-Multiple platform support: works on all operating systems where you have Java Runtime Environment 7.0 or newer.
+-Multiple window support.
+-Multiple folder tab support.
+-Multiple theme support.
+-Multilingual user interface.

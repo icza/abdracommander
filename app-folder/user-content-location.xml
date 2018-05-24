@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<userContentLocation docVer="1.0">
+
+<!--
+	Abdra Commander can store and load user content (including settings) from different locations.
+	This file specifies the location of the user content.
+	
+	The possible values of the location:
+	
+		IN_USER_HOME_FOLDER
+				The folder "Abdracmd-User-Content" in the user's home folder will be used.
+				Recommended if you use Abdracmd on your home computer or on a laptop.
+		
+		IN_APP_FOLDER
+				The folder "User-Content" inside the Abdra Commander folder will be used.
+				Recommended if you use Abdracmd from a USB stick for example.
+		
+		CUSTOM_FOLDER
+				A custom folder will be used which has to be specified in the "customFolder" tag after the location type.
+	
+	If this XML file is invalid, or an invalid location type is given, or "customFolder" is not specified in case of CUSTOM_FOLDER,
+	IN_USER_HOME_FOLDER will be used as the default user content location.  
+-->
+
+<!-- Location type must be one of { IN_USER_HOME_FOLDER, IN_APP_FOLDER, CUSTOM_FOLDER }. -->
+<locationType>IN_APP_FOLDER</locationType>
+
+<!-- Custom folder to use as the "User-Content" if CUSTOM_FOLDER is specified as the location type. Else it is disregarded. -->
+<customFolder></customFolder>
+
+</userContentLocation>

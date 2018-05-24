@@ -1,0 +1,176 @@
+<html>
+<head>
+	<style>
+		ol li {border-top:1px solid #888;border-bottom:2px solid #888;padding-top:15px;padding-bottom:15px;margin-top:2px}
+		.resolved {text-decoration:line-through;background:#ddd}
+		.resDone {text-decoration:none !important;background:#a0ffa0;margin-top:10px}
+	</style>
+</head>
+
+<body>
+
+<h3>Issues and ideas related to the Abdra Commander project</h3>
+
+<ol reversed="reversed">
+
+
+<!------------------------------------------------------------------------
+--------------------------- OPEN ISSUES-----------------------------------
+-------------------------------------------------------------------------->
+
+
+<li value="60">[NEXT ISSUE]
+</li>
+
+<li value="59">Have an option to "Check for news on startup" which should download the news feeds from the home page (RSS), and show a popup
+dialog if there are news posts (since the last start?).
+</li>
+
+<li value="58">Investigate and implement: language files can be modified, specify mnemonics like this: &lt;t k="ACTION$EXIT" m="E"&gt;Exit&lt;/t&gt;
+</li>
+
+<li value="57">Implement my own "JOptionPane" for info, warning and confirmation dialogs.
+</li>
+
+<li value="54">Optimization idea: in methods where an instance property is used many times (especially in cycles),
+create a local copy of it (and use it).
+</li>
+
+<li value="52">Develop a FileOpDialog SMP which will execute a FileOp.<br>
+Parameters: FileOp, Path[] inputPaths<br>
+Display 3 progress bars (current (size) processing path, total size processing, total count processing)<br>
+Display statistics like "Elapsed time", "Estimated remaining time", "Estimated total time", "Avg processing time /sec" (auto unit or setting), "Avg size processing speed" e.g. KB/s, "Avg processing time X sec" (auto unit or setting) (also have stats for current values, not avg))<br>
+ExpandablePanel with a title: "v [I] Show XXX", "^ [I] Hide XXX"<br>
+Used by "Show statistics" for example
+While counting, indicate: "Counting... (xxx so far, yyy MB)"
+</li>
+
+<li value="51">Since tab setup menu is added (bound to some mouse listener), closing with middle click doesn't work anymore...
+</li> 
+
+<li value="50">Implement tab reordering by dragging them. If done, put info line in Tab setup popup (similar to column setup popup).
+</li>
+
+<li value="48">When a foreground operation runs, put completion percent in title (to the front).
+</li>
+
+<li value="47"> Settings dialog, other options (to Apply): "Also save settings", "Restart".
+</li>
+
+<li value="46">Include Attribution in About dialog? Either in the Components page or as a separate page.<br>
+Examples: logo and icon artwork (author, idea), icons.
+</li>
+
+<li value="45">Custom date, date+time, time formats to the settings.
+</li>
+
+<li value="44">Consider allowing a "navigation tree title" parameter which could be the value of the tree root.
+</li>
+
+<li value="43">In settings save startup time data, use that to estimate next startup time so progress bar can be displayed!<br>
+Maybe save these in the User-content/Stats folder, in XML format.<br>
+Show these statistics in the About dialog?
+</li>
+
+<li value="42">Welcome screen: ask for language and user content location. Can be triggered later on with a CLI argument (-showwelcomeframe)<br>
+There could also be a separate starter script for this (Abdracmd-config.cmd).
+</li>
+
+<li value="41">Introduce a new data type (class): Measurement; it has a numerical value and a unit string; handle it in smart table! Implement comparable; order by numerical value order!
+</li>
+
+<li value="40">Improve logging, log in something like XML format, and then system messages can be filtered by logging level!
+</li>
+
+<li value="39">build custom table component, use the guiutils.createnoneditabletable; also extras: filter rows, filter out rows, "Strech to window"
+</li>
+
+<li value="38">Give title to images when uploaded to Picasa, so they will be included in more image searches...
+</li>
+
+<li value="37">On startup, first check Java version. If less than 1.7.0, show a popup error note.
+</li>
+
+<li value="36">Inherit Object registry from BaseModel, and so if an object is registered/deregistered, fire property change event.
+</li>
+
+<li value="35">Introduce theme groups, a group will be modeled by a submenu in the themes menu.<br>
+Default groups: built-in, plugins etc?<br>
+Also introduce groups for columns?
+</li>
+
+<li value="34">Ctrl+Left click on column header in Folder view should set the secondary sorting column.
+</li>
+
+<li value="33">Optimize: FolderView, table renderers models etc instances can be reused between instances?
+</li>
+
+<li value="32">Consider logging in this way:
+	info( testLevel( LogLevel.INFO ) ? "Message to log" + " which goes on " + " and on..." : null );
+</li>
+
+<li value="31">Special columns for special file types, e.g. length for audio/video files, size or width+height for images/videos.
+</li>
+
+<li value="30">Just like save tab list, save column setup and load column setup; also column setup when entering a folder (auto-switch column setup when inside a folder).
+</li>
+
+<li value="29">Latest version info should include main jar (and other files) checksum, perform self check and offer update ("refresh-update") if modified.
+</li>
+
+<li value="28">View menu, switch panels, set folder from other panel.
+</li>
+
+<li value="27">Tabbed pane add context menu, save tab list, load tab list.
+</li>
+
+<li value="26">Cmd param to override UCL (user content location).
+</li>
+
+<li value="25">IColumn new method: isSupported() (on current OS)
+</li>
+
+<li value="24">New cols: created, accessed, owner, group
+</li>
+
+<li value="23">Icon to the tool bar, display log entires (times logging was called), on click open the log viewer.
+</li>
+
+<li value="22">Memory monitor to the toolbar, similar to the one in Sc2gears.
+</li>
+
+<li value="21">Add new action? "New Tab", "Show left root popup menu", "Show right root popup menu"
+</li>
+
+
+
+<!------------------------------------------------------------------------
+--------------------------- RESOLVED ISSUES-----------------------------------
+-------------------------------------------------------------------------->
+
+
+<li value="56" class="resolved">Folder view table, clicking on "free space" (comes from the scroll pane) should focus the table (it does not currently). 
+<div class="resDone">RESOLUTION: DONE</div>
+</li>
+
+<li value="55" class="resolved">When folder table is refreshed, selected rows (selection info) is lost. It should (must) be kept!
+<div class="resDone">RESOLUTION: DONE</div>
+</li>
+
+<li value="53" class="resolved">Create a new menu: "Command bar", add the items of the command bar as menus, so this will be accessible when the command bar is hidden.<br>
+This would also solve the problem #49.
+<div class="resDone">RESOLUTION: DONE</div>
+</li>
+
+<li value="49" class="resolved">If command bar is not visible, their hotkeys are not active!!! (See also #53)
+<div class="resDone">RESOLUTION: DONE</div>
+</li>
+
+
+</ol>
+
+<hr/>
+<div align=right><i>&copy; Andr&aacute;s Belicza, 2012</i></div>
+
+</body>
+</html>

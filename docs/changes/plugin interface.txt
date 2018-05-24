@@ -1,0 +1,7 @@
+
+With the plugin interface you can:
+-Add new file operations.
+-Add new columns to the folders table.
+-Add new folder theme.
+-Add new pages to the About dialog.
+-TODO Add support for custom files to go into.

@@ -1,0 +1,7 @@
+
+-A brand new file manager and utility.
+
+-The newest file commander written completely in Java (meaning you can use it in any Operating System).
+It is the first one to take advantage of the new native I/O capabilities of Java 7.
+
+-Extensive column list including MIME type, type description etc...
